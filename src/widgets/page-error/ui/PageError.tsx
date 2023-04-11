@@ -13,6 +13,7 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
     const reloadPage = () => {
         location.reload();
     };
+
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             <p>{t("UNEXPECTED ERROR")}</p>

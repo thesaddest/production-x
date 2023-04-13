@@ -18,7 +18,13 @@ module.exports = {
         "react/jsx-indent": [2, 4],
         "react/react-in-jsx-scope": 0,
         indent: [2, 4],
-        "i18next/no-literal-string": ["error", { markupOnly: true }],
+        "i18next/no-literal-string": [
+            "error",
+            {
+                markupOnly: true,
+                ignoreAttributes: ["data-testid", "to"],
+            },
+        ],
     },
     settings: {
         react: {

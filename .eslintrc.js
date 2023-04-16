@@ -25,6 +25,7 @@ module.exports = {
                 ignoreAttributes: ["data-testid", "to"],
             },
         ],
+        "react/display-name": [0]
     },
     settings: {
         react: {

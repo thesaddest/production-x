@@ -1,15 +1,14 @@
-import "app/styles/index.scss";
 import { StoryFn } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
+import { ComponentType } from "react";
 
-export const ThemeDecorator = (StoryComponent: StoryFn) => {
-    const HOCStoryComponent = (storyTheme: Theme) => {
-        return (
-            <div className={`app ${storyTheme}`}>
-                <StoryComponent />
-            </div>
-        );
-    };
-    HOCStoryComponent.displayName = "ThemeDecorator";
-    return HOCStoryComponent;
+export const ThemeDecorator = (storyTheme: Theme) => (StoryComponent: StoryFn) => {
+    const DecoratedStoryComponent = () => (
+        <div className={`app ${storyTheme}`}>
+            <StoryComponent />
+        </div>
+    );
+
+    (DecoratedStoryComponent as ComponentType).displayName = "ThemeDecorator";
+    return <DecoratedStoryComponent />;
 };

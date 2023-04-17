@@ -3,5 +3,5 @@ node_modules
 /build/
 storybook-static
 extractedTranslations
-loki/report.json
-loki/report.html
+.loki/report.json
+.loki/report.html

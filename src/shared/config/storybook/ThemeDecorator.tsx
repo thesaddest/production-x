@@ -1,12 +1,14 @@
 import { StoryFn } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
+import { Theme, ThemeProvider } from "app/providers/ThemeProvider";
 import { ComponentType } from "react";
 
 export const ThemeDecorator = (storyTheme: Theme) => (StoryComponent: StoryFn) => {
     const DecoratedStoryComponent = () => (
-        <div className={`app ${storyTheme}`}>
-            <StoryComponent />
-        </div>
+        <ThemeProvider initialTheme={storyTheme}>
+            <div className={`app ${storyTheme}`}>
+                <StoryComponent />
+            </div>
+        </ThemeProvider>
     );
 
     (DecoratedStoryComponent as ComponentType).displayName = "ThemeDecorator";

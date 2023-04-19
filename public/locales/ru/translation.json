@@ -4,5 +4,8 @@
     "LANG": "RU",
     "PAGE NOT FOUND": "СТРАНИЦА НЕ НАЙДЕНА",
     "UNEXPECTED ERROR": "ПРОИЗОШЛА НЕПРЕДВИДЕННАЯ ОШИБКА",
-    "TOGGLE": "ПЕРЕКЛЮЧИТЬ"
+    "TOGGLE": "ПЕРЕКЛЮЧИТЬ",
+    "LOGIN": "ВОЙТИ",
+    "INCREMENT": "УВЕЛИЧИТЬ",
+    "DECREMENT": "УМЕНЬШИТЬ"
 }

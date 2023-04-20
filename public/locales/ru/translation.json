@@ -7,5 +7,7 @@
     "TOGGLE": "ПЕРЕКЛЮЧИТЬ",
     "LOGIN": "ВОЙТИ",
     "INCREMENT": "УВЕЛИЧИТЬ",
-    "DECREMENT": "УМЕНЬШИТЬ"
+    "DECREMENT": "УМЕНЬШИТЬ",
+    "ENTER PASSWORD": "ВВЕДИТЕ ПАРОЛЬ",
+    "ENTER USERNAME": "ВВЕДИТЕ ЛОГИН"
 }

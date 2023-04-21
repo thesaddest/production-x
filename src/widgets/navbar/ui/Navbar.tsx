@@ -24,7 +24,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
             <Button theme={ButtonTheme.CLEAR_INVERTED} className={classNames(cls.links)} onClick={onShowModal}>
-                {t("Login")}
+                {t("LOGIN")}
             </Button>
             <LoginModal isOpen={isOpen} onClose={onCloseModal} />
         </div>

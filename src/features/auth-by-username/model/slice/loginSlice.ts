@@ -25,7 +25,7 @@ const loginSlice = createSlice({
         builder.addCase(loginByUsername.pending, (state) => {
             state.status = STATE_STATUSES.PENDING;
         });
-        builder.addCase(loginByUsername.fulfilled, (state, action) => {
+        builder.addCase(loginByUsername.fulfilled, (state) => {
             state.status = STATE_STATUSES.SUCCEEDED;
         });
         builder.addCase(loginByUsername.rejected, (state, action) => {

@@ -10,6 +10,7 @@ import { getLoginState } from "../../model/selectors/getLoginState/getLoginState
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { STATE_STATUSES } from "shared/constants/state.constants";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 
 interface LoginFormProps {
     className?: string;
@@ -40,7 +41,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            {error && <div>{error}</div>}
+            <Text title={t("AUTH FORM")} />
+            {error && <Text theme={TextTheme.ERROR} text={t("INCORRECT LOGIN OR PASSWORD")} />}
             <Input
                 autoFocus
                 placeholder={t("ENTER USERNAME")}

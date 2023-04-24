@@ -6,8 +6,11 @@
     "UNEXPECTED ERROR": "ПРОИЗОШЛА НЕПРЕДВИДЕННАЯ ОШИБКА",
     "TOGGLE": "ПЕРЕКЛЮЧИТЬ",
     "LOGIN": "ВОЙТИ",
+    "LOGOUT": "ВЫЙТИ",
     "INCREMENT": "УВЕЛИЧИТЬ",
     "DECREMENT": "УМЕНЬШИТЬ",
     "ENTER PASSWORD": "ВВЕДИТЕ ПАРОЛЬ",
-    "ENTER USERNAME": "ВВЕДИТЕ ЛОГИН"
+    "ENTER USERNAME": "ВВЕДИТЕ ЛОГИН",
+    "AUTH FORM": "ФОРМА АВТОРИЗАЦИИ",
+    "INCORRECT LOGIN OR PASSWORD": "НЕПРАВИЛЬНЫЙ ЛОГИН ИЛИ ПАРОЛЬ"
 }

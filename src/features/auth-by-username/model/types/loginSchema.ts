@@ -4,5 +4,5 @@ export interface LoginSchema {
     username: string;
     password: string;
     status: STATE_STATUSES;
-    error: string;
+    error?: string;
 }

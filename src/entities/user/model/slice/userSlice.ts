@@ -4,7 +4,7 @@ import { USER_LOCALSTORAGE_KEY } from "shared/constants/localstorage";
 
 const initialState: UserSchema = {};
 
-const counterSlice = createSlice({
+const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
@@ -24,5 +24,5 @@ const counterSlice = createSlice({
     },
 });
 
-export const { actions: userActions } = counterSlice;
-export const { reducer: userReducer } = counterSlice;
+export const { actions: userActions } = userSlice;
+export const { reducer: userReducer } = userSlice;

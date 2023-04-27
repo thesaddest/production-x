@@ -7,5 +7,14 @@
     ],
     "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
     "users": [{ "id": "1", "username": "admin", "password": "123" }],
-    "profile": { "name": "typicode" }
+    "profile": {
+        "firstName": "Artsem",
+        "lastName": "Shauchuk",
+        "age": 21,
+        "currency": "pln",
+        "country:": "Poland",
+        "city": "Warsaw",
+        "username": "thesaddest",
+        "avatar": "https://media.licdn.com/dms/image/D4D35AQEk9TPNPM6v1A/profile-framedphoto-shrink_200_200/0/1679305850183?e=1683183600&v=beta&t=JxJAjJ7yziaXTecKEVewXwI2ucYyRyHHC7nit0VlqzA"
+    }
 }

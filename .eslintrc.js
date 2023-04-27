@@ -15,6 +15,7 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
     rules: {
+        "react/prop-types": [0],
         "react/jsx-indent": [2, 4],
         "react/react-in-jsx-scope": 0,
         "react-hooks/rules-of-hooks": "error",

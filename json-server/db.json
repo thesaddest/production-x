@@ -1,20 +1,49 @@
 {
-    "posts": [
-        { "id": "1", "title": "json-server 1", "author": "typicode" },
-        { "id": "2", "title": "json-server 2", "author": "typicode" },
-        { "id": "3", "title": "json-server 3", "author": "typicode" },
-        { "id": "4", "title": "json-server 4", "author": "typicode" }
-    ],
-    "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
-    "users": [{ "id": "1", "username": "admin", "password": "123" }],
-    "profile": {
-        "firstName": "Artsem",
-        "lastName": "Shauchuk",
-        "age": 21,
-        "currency": "pln",
-        "country:": "Poland",
-        "city": "Warsaw",
-        "username": "thesaddest",
-        "avatar": "https://media.licdn.com/dms/image/D4D35AQEk9TPNPM6v1A/profile-framedphoto-shrink_200_200/0/1679305850183?e=1683183600&v=beta&t=JxJAjJ7yziaXTecKEVewXwI2ucYyRyHHC7nit0VlqzA"
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server 1",
+      "author": "typicode"
+    },
+    {
+      "id": "2",
+      "title": "json-server 2",
+      "author": "typicode"
+    },
+    {
+      "id": "3",
+      "title": "json-server 3",
+      "author": "typicode"
+    },
+    {
+      "id": "4",
+      "title": "json-server 4",
+      "author": "typicode"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "firstName": "Artsem",
+    "lastName": "Shauchuk",
+    "age": 21,
+    "currency": "pln",
+    "country:": "Poland",
+    "city": "Warsaw",
+    "username": "thesaddest",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU",
+    "country": "Poland"
+  }
 }

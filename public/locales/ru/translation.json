@@ -12,5 +12,7 @@
     "ENTER PASSWORD": "ВВЕДИТЕ ПАРОЛЬ",
     "ENTER USERNAME": "ВВЕДИТЕ ЛОГИН",
     "AUTH FORM": "ФОРМА АВТОРИЗАЦИИ",
-    "INCORRECT LOGIN OR PASSWORD": "НЕПРАВИЛЬНЫЙ ЛОГИН ИЛИ ПАРОЛЬ"
+    "INCORRECT LOGIN OR PASSWORD": "НЕПРАВИЛЬНЫЙ ЛОГИН ИЛИ ПАРОЛЬ",
+    "PROFILE LOADING ERROR": "ПРОИЗОШЛА ОШИБКА ПРИ ЗАГРУЗКЕ ПРОФИЛЯ",
+    "TRY TO RELOAD THE PAGE": "Попробуйте перезагрузить страницу"
 }

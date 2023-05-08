@@ -30,5 +30,5 @@ export const Loading: Story = {
 };
 
 Loading.decorators = [
-    StoreDecorator({ loginForm: { username: "test", password: "123", status: STATE_STATUSES.PENDING } }),
+    StoreDecorator({ loginForm: { username: "test", password: "123", status: STATE_STATUSES.LOADING } }),
 ];

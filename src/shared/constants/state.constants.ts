@@ -1,6 +1,6 @@
 export enum STATE_STATUSES {
-    START = "start",
-    PENDING = "pending",
-    SUCCEEDED = "succeeded",
-    FAILED = "failed",
+    INIT = "init",
+    LOADING = "loading",
+    SUCCESS = "success",
+    ERROR = "error",
 }

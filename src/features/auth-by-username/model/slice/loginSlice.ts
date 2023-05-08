@@ -6,7 +6,7 @@ import { loginByUsername } from "../services/loginByUsername/loginByUsername";
 const initialState: LoginSchema = {
     username: "",
     password: "",
-    status: STATE_STATUSES.START,
+    status: STATE_STATUSES.INIT,
 };
 
 const loginSlice = createSlice({
@@ -22,13 +22,13 @@ const loginSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(loginByUsername.pending, (state) => {
-            state.status = STATE_STATUSES.PENDING;
+            state.status = STATE_STATUSES.LOADING;
         });
         builder.addCase(loginByUsername.fulfilled, (state) => {
-            state.status = STATE_STATUSES.SUCCEEDED;
+            state.status = STATE_STATUSES.SUCCESS;
         });
         builder.addCase(loginByUsername.rejected, (state, action) => {
-            state.status = STATE_STATUSES.FAILED;
+            state.status = STATE_STATUSES.ERROR;
             state.error = action.payload;
         });
     },

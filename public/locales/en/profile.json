@@ -1,4 +1,14 @@
 {
   "PROFILE": "PROFILE",
-  "EDIT": "EDIT"
+  "EDIT": "EDIT",
+  "CANCEL": "CANCEL",
+  "YOUR NAME": "Your name",
+  "YOUR SURNAME": "Your surname",
+  "SAVE": "SAVE",
+  "YOUR AGE": "Your age",
+  "YOUR CITY": "Your city",
+  "YOUR USERNAME": "Your username",
+  "YOUR AVATAR": "Your avatar url",
+  "YOUR CURRENCY": "Your currency",
+  "YOUR COUNTRY": "Your country"
 }

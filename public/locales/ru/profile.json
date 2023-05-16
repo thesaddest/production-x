@@ -10,5 +10,10 @@
   "YOUR USERNAME": "Ваше имя пользователя",
   "YOUR AVATAR": "Введите ссылку на аватар",
   "YOUR CURRENCY": "Ваша валюта",
-  "YOUR COUNTRY": "Ваша страна"
+  "YOUR COUNTRY": "Ваша страна",
+  "SERVER ERROR": "Ошибка сервера",
+  "NO DATA": "Отсутствую данные",
+  "INCORRECT COUNTRY": "Неверная страна",
+  "INCORRECT AGE": "Неверный возраст",
+  "INCORRECT USER DATA": "Неправильные данные пользователя"
 }

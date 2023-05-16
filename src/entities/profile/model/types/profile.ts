@@ -1,6 +1,14 @@
 import { STATE_STATUSES } from "shared/constants/state.constants";
-import { Currency } from "entities/currency/model/types/currency";
-import { Country } from "entities/country/model/types/country";
+import { Currency } from "entities/currency";
+import { Country } from "entities/country";
+
+export enum ValidateProfileError {
+    INCORRECT_USER_DATA = "INCORRECT_USER_DATA",
+    INCORRECT_AGE = "INCORRECT_AGE",
+    INCORRECT_COUNTRY = "INCORRECT_COUNTRY",
+    NO_DATA = "NO_DATA",
+    SERVER_ERROR = "SERVER_ERROR",
+}
 
 export interface Profile {
     firstName?: string;
@@ -19,4 +27,5 @@ export interface ProfileSchema {
     status: STATE_STATUSES;
     error?: string;
     readonly: boolean;
+    validateErrors?: ValidateProfileError[];
 }

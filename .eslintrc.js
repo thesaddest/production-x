@@ -20,7 +20,7 @@ module.exports = {
         "react/react-in-jsx-scope": 0,
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
-        indent: [2, 4],
+        indent: ["error", 4, { SwitchCase: 1 }],
         "i18next/no-literal-string": [
             "error",
             {

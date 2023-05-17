@@ -4,10 +4,12 @@ import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
 import { loginReducer } from "features/auth-by-username/model/slice/loginSlice";
 import { profileReducer } from "entities/profile";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { articleDetailsReducer } from "entities/article/model/slice/articleDetailsSlice";
 /* eslint-disable */
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
+    articleDetails: articleDetailsReducer,
 };
 
 export const StoreDecorator =

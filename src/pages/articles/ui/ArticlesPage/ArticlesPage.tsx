@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticlesPage.module.scss";
-import { FC, memo } from "react";
+import { memo } from "react";
 
 interface ArticlesPageProps {
     className?: string;

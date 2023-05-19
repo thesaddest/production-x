@@ -1,16 +1,9 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./ArticleDetails.module.scss";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { fetchArticleById } from "entities/article/model/services/fetchArticleById";
 import { useSelector } from "react-redux";
-import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsStatus,
-} from "../../model/selectors/articleDetails";
 import { STATE_STATUSES } from "shared/constants/state.constants";
 import { Text, TextAlign, TextSize } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
@@ -19,11 +12,18 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import EyeIcon from "shared/assets/icons/eye.svg";
 import CalendarIcon from "shared/assets/icons/calendar.svg";
 import { Icon } from "shared/ui/Icon/Icon";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsStatus,
+} from "../../model/selectors/articleDetails";
+import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
+import cls from "./ArticleDetails.module.scss";
 
 interface ArticleDetailsProps {
     id: string;
@@ -59,10 +59,10 @@ export const ArticleDetails = memo<ArticleDetailsProps>(({ className, id }) => {
     if (status === STATE_STATUSES.LOADING) {
         content = (
             <>
-                <Skeleton height={200} width={200} border={"50%"} className={cls.avatar} />
+                <Skeleton height={200} width={200} border="50%" className={cls.avatar} />
                 <Skeleton height={32} width={300} className={cls.title} />
-                <Skeleton height={200} width={"100%"} className={cls.skeleton} />
-                <Skeleton height={200} width={"100%"} className={cls.skeleton} />
+                <Skeleton height={200} width="100%" className={cls.skeleton} />
+                <Skeleton height={200} width="100%" className={cls.skeleton} />
             </>
         );
     } else if (error) {

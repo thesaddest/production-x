@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { getProfileValidationErrors } from "./getProfileValidationErrors";
 import { ValidateProfileError } from "entities/profile";
+import { getProfileValidationErrors } from "./getProfileValidationErrors";
 
 describe("getProfileStatus.test", () => {
     test("should return profile validation errors", () => {

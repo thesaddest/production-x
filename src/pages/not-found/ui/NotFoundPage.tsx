@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./NotFound.module.scss";
 import { useTranslation } from "react-i18next";
+import cls from "./NotFound.module.scss";
 
 interface NotFoundProps {
     className?: string;

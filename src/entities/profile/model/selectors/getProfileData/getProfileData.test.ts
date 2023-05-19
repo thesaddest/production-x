@@ -1,7 +1,7 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { getProfileData } from "./getProfileData";
 import { Country } from "entities/country";
 import { Currency } from "entities/currency";
+import { getProfileData } from "./getProfileData";
 
 describe("getProfileData.test", () => {
     test("should return data", () => {
@@ -16,7 +16,7 @@ describe("getProfileData.test", () => {
         };
         const state: DeepPartial<StateSchema> = {
             profile: {
-                data: data,
+                data,
             },
         };
 

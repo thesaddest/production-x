@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { getProfileStatus } from "./getProfileStatus";
 import { STATE_STATUSES } from "shared/constants/state.constants";
+import { getProfileStatus } from "./getProfileStatus";
 
 describe("getProfileStatus.test", () => {
     test("should return profile status success", () => {

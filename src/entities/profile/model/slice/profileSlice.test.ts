@@ -1,8 +1,8 @@
-import { profileReducer, profileActions } from "./profileSlice";
 import { ProfileSchema, updateProfileData, ValidateProfileError } from "entities/profile";
 import { STATE_STATUSES } from "shared/constants/state.constants";
 import { Country } from "entities/country";
 import { Currency } from "entities/currency";
+import { profileReducer, profileActions } from "./profileSlice";
 
 const data = {
     username: "TEST_USERNAME",
@@ -46,7 +46,7 @@ describe("profileSlice.test", () => {
             validateErrors: undefined,
             error: undefined,
             form: data,
-            data: data,
+            data,
         });
     });
 });

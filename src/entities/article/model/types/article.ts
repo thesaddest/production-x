@@ -1,3 +1,15 @@
+export enum ArticleType {
+    IT = "IT",
+    SCIENCE = "SCIENCE",
+    ECONOMICS = "ECONOMICS",
+}
+
+export enum ArticleBlockType {
+    IMAGE = "IMAGE",
+    TEXT = "TEXT",
+    CODE = "CODE",
+}
+
 export interface ArticleBlockBase {
     id: string;
     type: ArticleBlockType;
@@ -31,16 +43,4 @@ export interface Article {
     createdAt: string;
     type: ArticleType[];
     blocks: ArticleBlock[];
-}
-
-export enum ArticleType {
-    IT = "IT",
-    SCIENCE = "SCIENCE",
-    ECONOMICS = "ECONOMICS",
-}
-
-export enum ArticleBlockType {
-    IMAGE = "IMAGE",
-    TEXT = "TEXT",
-    CODE = "CODE",
 }

@@ -1,9 +1,9 @@
 import { memo, useMemo, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./Sidebar.module.scss";
 import { ThemeSwitcher } from "widgets/theme-switcher";
 import { LangSwitcher } from "widgets/lang-switcher/ui/LangSwitcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
+import cls from "./Sidebar.module.scss";
 import { SidebarItemsList } from "../../model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
@@ -25,11 +25,11 @@ export const Sidebar = memo<SidebarProps>(({ className }) => {
 
     return (
         <div
-            data-testid={"sidebar"}
+            data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.isCollapsed]: isCollapsed }, [className])}
         >
             <Button
-                data-testid={"sidebar-toggle"}
+                data-testid="sidebar-toggle"
                 onClick={onToggle}
                 className={cls.collapseBtn}
                 theme={ButtonTheme.BACKGROUND_INVERTED}

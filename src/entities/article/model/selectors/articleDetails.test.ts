@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsStatus } from "./articleDetails";
 import { STATE_STATUSES } from "shared/constants/state.constants";
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsStatus } from "./articleDetails";
 
 describe("getArticleDetailsData.test", () => {
     test("should return data", () => {

@@ -1,6 +1,6 @@
-import { BuildPaths } from "../build/types/config";
 import path from "path";
 import webpack, { RuleSetRule } from "webpack";
+import { BuildPaths } from "../build/types/config";
 import { buildCssLoaders } from "../build/loaders/buildCssLoaders";
 import { buildSvgLoaders } from "../build/loaders/buildSvgLoaders";
 

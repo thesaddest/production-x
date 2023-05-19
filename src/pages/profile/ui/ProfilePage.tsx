@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
@@ -15,11 +15,13 @@ import {
 } from "entities/profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
-import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/currency";
 import { Country } from "entities/country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { useParams } from "react-router-dom";
+import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -38,6 +40,7 @@ const ProfilePage = memo<ProfileProps>(({ className }) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validationErrors = useSelector(getProfileValidationErrors);
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorTranslations = {
         [ValidateProfileError.SERVER_ERROR]: t("SERVER ERROR"),
@@ -47,9 +50,9 @@ const ProfilePage = memo<ProfileProps>(({ className }) => {
         [ValidateProfileError.INCORRECT_USER_DATA]: t("INCORRECT USER DATA"),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== "storybook") dispatch(fetchProfileData());
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData(id));
+    });
 
     const onChangeFirstName = useCallback(
         (value?: string) => {
@@ -95,14 +98,14 @@ const ProfilePage = memo<ProfileProps>(({ className }) => {
 
     const onChangeCurrency = useCallback(
         (currency?: Currency) => {
-            dispatch(profileActions.updateProfile({ currency: currency }));
+            dispatch(profileActions.updateProfile({ currency }));
         },
         [dispatch],
     );
 
     const onChangeCountry = useCallback(
         (country?: Country) => {
-            dispatch(profileActions.updateProfile({ country: country }));
+            dispatch(profileActions.updateProfile({ country }));
         },
         [dispatch],
     );

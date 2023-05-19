@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { getLoginStatus } from "./getLoginStatus";
 import { STATE_STATUSES } from "shared/constants/state.constants";
+import { getLoginStatus } from "./getLoginStatus";
 
 describe("getLoginStatus.test", () => {
     test("should return pending", () => {

@@ -1,8 +1,8 @@
-import { updateProfileData } from "./updateProfileData";
 import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunk/testAsyncThunk";
 import { Country } from "entities/country";
 import { Currency } from "entities/currency";
 import { ValidateProfileError } from "entities/profile";
+import { updateProfileData } from "./updateProfileData";
 
 const data = {
     username: "TEST_USERNAME",
@@ -12,6 +12,7 @@ const data = {
     lastName: "TEST_LASTNAME",
     currency: Currency.PLN,
     city: "Warsaw",
+    id: "1",
 };
 
 describe("updateProfileData.test", () => {
@@ -21,7 +22,7 @@ describe("updateProfileData.test", () => {
                 form: data,
             },
         });
-        thunk.api.put.mockReturnValue(Promise.resolve({ data: data }));
+        thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
         const result = await thunk.callThunk();
 

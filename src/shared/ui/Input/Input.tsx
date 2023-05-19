@@ -1,8 +1,5 @@
 import {
     ChangeEvent,
-    ChangeEventHandler,
-    EventHandler,
-    FC,
     InputHTMLAttributes,
     memo,
     SyntheticEvent,

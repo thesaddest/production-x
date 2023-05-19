@@ -1,20 +1,20 @@
-import { useSelector, useStore } from "react-redux";
-import { memo, useCallback, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
-import { loginActions, loginReducer } from "../../model/slice/loginSlice";
-import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { STATE_STATUSES } from "shared/constants/state.constants";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import cls from "./LoginForm.module.scss";
+import { loginActions, loginReducer } from "../../model/slice/loginSlice";
+import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginStatus } from "../../model/selectors/getLoginStatus/getLoginStatus";
-import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 export interface LoginFormProps {
     className?: string;
@@ -48,14 +48,14 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     );
 
     const onLoginClick = useCallback(async () => {
-        const result = await dispatch(loginByUsername({ username: username, password: password }));
+        const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === "fulfilled") {
             onSuccess();
         }
     }, [dispatch, onSuccess, password, username]);
 
     return (
-        <DynamicModuleLoader removeAfterUnmount={true} reducers={initialReducers}>
+        <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t("AUTH FORM")} />
                 {error && <Text theme={TextTheme.ERROR} text={t("INCORRECT LOGIN OR PASSWORD")} />}

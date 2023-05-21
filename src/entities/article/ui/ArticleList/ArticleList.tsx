@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import { ArticleListItemSkeleton } from "entities/article/ui/ArticleListItem/ArticleListItemSkeleton";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { Article, ArticleView } from "../../model/types/article";
@@ -29,12 +29,9 @@ export const ArticleList = memo<ArticleListProps>((props) => {
         );
     }
 
-    const renderArticle = useCallback(
-        (article: Article) => {
-            return <ArticleListItem article={article} view={view} key={article.id} className={cls.card} />;
-        },
-        [view],
-    );
+    const renderArticle = (article: Article) => {
+        return <ArticleListItem article={article} view={view} key={article.id} className={cls.card} />;
+    };
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

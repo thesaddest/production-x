@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Article } from "entities/article";
-import { ArticleBlockType, ArticleType } from "entities/article/model/types/article";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
-import ArticleDetailsPage from "./ArticleDetailsPage";
+import { Article, ArticleBlockType, ArticleType, ArticleView } from "../../model/types/article";
+import { ArticleList } from "./ArticleList";
 
-const meta: Meta<typeof ArticleDetailsPage> = {
-    title: "pages/ArticleDetailsPage",
-    component: ArticleDetailsPage,
+const meta: Meta<typeof ArticleList> = {
+    title: "entities/article/ArticleList",
+    component: ArticleList,
 };
 
 export default meta;
@@ -18,14 +16,15 @@ const article: Article = {
     id: "1",
     user: {
         id: "1",
-        username: "story username",
+        username: "test username",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU",
     },
-    title: "Javascript news",
+    title: "Javascript news and more more more more more more more more more more",
     subtitle: "What's new in JS?",
     img: "https://habrastorage.org/getpro/habr/upload_files/47b/80a/93c/47b80a93c4010ff074c758b82b0d51f3.png",
     views: 1022,
     createdAt: "17.05.2023",
-    type: [ArticleType.IT],
+    type: [ArticleType.IT, ArticleType.SCIENCE, ArticleType.ECONOMICS],
     blocks: [
         {
             id: "1",
@@ -71,13 +70,19 @@ const article: Article = {
         },
     ],
 };
-export const Primary: Story = {
-    args: {},
+
+export const List: Story = {
+    args: { articles: [article, article, article], view: ArticleView.LIST },
 };
-Primary.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            data: article,
-        },
-    }),
-];
+
+export const Tile: Story = {
+    args: { articles: [article, article, article], view: ArticleView.TILE },
+};
+
+export const LoadingList: Story = {
+    args: { isLoading: true, articles: [], view: ArticleView.LIST },
+};
+
+export const LoadingTile: Story = {
+    args: { isLoading: true, articles: [], view: ArticleView.TILE },
+};

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Skeleton } from "./Skeleton";
 
 const meta: Meta<typeof Skeleton> = {
-    title: "Skeleton",
+    title: "shared/Skeleton",
     component: Skeleton,
 };
 

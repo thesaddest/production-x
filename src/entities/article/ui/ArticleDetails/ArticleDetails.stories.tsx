@@ -7,7 +7,7 @@ import { STATE_STATUSES } from "shared/constants/state.constants";
 import { ArticleDetails } from "./ArticleDetails";
 
 const meta: Meta<typeof ArticleDetails> = {
-    title: "entities/ArticleDetails",
+    title: "entities/article/ArticleDetails",
     component: ArticleDetails,
 };
 
@@ -17,6 +17,10 @@ type Story = StoryObj<typeof meta>;
 
 const article: Article = {
     id: "1",
+    user: {
+        id: "1",
+        username: "story username",
+    },
     title: "Javascript news",
     subtitle: "What's new in JS?",
     img: "https://habrastorage.org/getpro/habr/upload_files/47b/80a/93c/47b80a93c4010ff074c758b82b0d51f3.png",

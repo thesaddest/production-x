@@ -13,6 +13,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { AddCommentForm } from "features/add-new-comment";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { RouterPath } from "shared/config";
+import { Page } from "shared/ui/Page/Page";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { getArticleDetailsCommentsError, getArticleDetailsCommentsStatus } from "../../model/selectors/comments";
 import { articleDetailsCommentsReducer, getArticleComments } from "../../model/slices/articleDetalisCommentsSlice";
@@ -54,7 +55,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(({ className }) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t("BACK TO THE LIST")}
                 </Button>
@@ -62,7 +63,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(({ className }) => {
                 <Text title={t("COMMENTS")} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList comments={comments} isLoading={commentsStatus === STATE_STATUSES.LOADING} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

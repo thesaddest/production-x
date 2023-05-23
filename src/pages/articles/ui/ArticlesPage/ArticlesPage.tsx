@@ -7,8 +7,9 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { STATE_STATUSES } from "shared/constants/state.constants";
 import { Page } from "shared/ui/Page/Page";
-import { fetchNextArticlesPage } from "pages/articles/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { Text } from "shared/ui/Text/Text";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import {
     getArticlesPageError,
     getArticlesPageStatus,
@@ -16,7 +17,6 @@ import {
 } from "../../model/selectors/articlesPageSelectors";
 import { articlesPageActions, articlesPageReducer, getArticles } from "../../model/slices/articlesPageSlice";
 import cls from "./ArticlesPage.module.scss";
-import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 
 interface ArticlesPageProps {
     className?: string;
@@ -34,8 +34,7 @@ const ArticlesPage = memo<ArticlesPageProps>(({ className }) => {
     const articles = useSelector(getArticles.selectAll);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initArticlesPageState());
-        dispatch(fetchArticlesList({ page: 1 }));
+        dispatch(initArticlesPage());
     });
 
     const onLoadNextPart = useCallback(() => {

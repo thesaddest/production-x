@@ -6,7 +6,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { STATE_STATUSES } from "shared/constants/state.constants";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/page";
 import { Text } from "shared/ui/Text/Text";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
@@ -53,7 +53,7 @@ const ArticlesPage = memo<ArticlesPageProps>(({ className }) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList isLoading={status === STATE_STATUSES.LOADING} view={view} articles={articles} />

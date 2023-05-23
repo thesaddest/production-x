@@ -7,10 +7,11 @@ import { ArticleDetailsSchema } from "entities/article";
 import { ArticleDetailsCommentsSchema } from "pages/article-details";
 import { AddNewCommentSchema } from "features/add-new-comment";
 import { ArticlesPageSchema } from "pages/articles";
+import { ScrollSchema } from "widgets/page";
 
 export interface StateSchema {
     user: UserSchema;
-
+    scrollSchema: ScrollSchema;
     // Async reducers
     loginForm?: LoginSchema;
     profile?: ProfileSchema;

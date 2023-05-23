@@ -13,7 +13,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { AddCommentForm } from "features/add-new-comment";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { RouterPath } from "shared/config";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/page";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { getArticleDetailsCommentsError, getArticleDetailsCommentsStatus } from "../../model/selectors/comments";
 import { articleDetailsCommentsReducer, getArticleComments } from "../../model/slices/articleDetalisCommentsSlice";

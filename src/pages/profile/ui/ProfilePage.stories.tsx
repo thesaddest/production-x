@@ -9,7 +9,7 @@ import AvatarImg from "shared/assets/tests/storybook.png";
 import ProfilePage from "./ProfilePage";
 
 const meta: Meta<typeof ProfilePage> = {
-    title: "pages/Profile",
+    title: "pages/profile/Profile",
     component: ProfilePage,
 };
 

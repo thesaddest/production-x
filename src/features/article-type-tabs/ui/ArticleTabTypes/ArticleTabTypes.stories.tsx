@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import ArticlesPage from "./ArticlesPage";
+import { ArticleTabTypes } from "./ArticleTabTypes";
 
-const meta: Meta<typeof ArticlesPage> = {
-    title: "pages/article/ArticlesPage",
-    component: ArticlesPage,
+const meta: Meta<typeof ArticleTabTypes> = {
+    title: "ArticleTabTypes",
+    component: ArticleTabTypes,
 };
 
 export default meta;

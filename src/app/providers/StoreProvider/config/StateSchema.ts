@@ -4,7 +4,7 @@ import { LoginSchema } from "features/auth-by-username";
 import { ProfileSchema } from "entities/profile";
 import { AxiosInstance } from "axios";
 import { ArticleDetailsSchema } from "entities/article";
-import { ArticleDetailsCommentsSchema } from "pages/article-details";
+import { ArticleDetailsPageSchema } from "pages/article-details";
 import { AddNewCommentSchema } from "features/add-new-comment";
 import { ArticlesPageSchema } from "pages/articles";
 import { ScrollSchema } from "widgets/page";
@@ -16,9 +16,9 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addNewComment?: AddNewCommentSchema;
     articlesPage?: ArticlesPageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

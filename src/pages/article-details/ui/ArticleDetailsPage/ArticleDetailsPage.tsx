@@ -1,9 +1,9 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { ArticleDetails } from "entities/article";
+import { ArticleDetails, ArticleList } from "entities/article";
 import { useNavigate, useParams } from "react-router-dom";
-import { Text } from "shared/ui/Text/Text";
+import { Text, TextSize } from "shared/ui/Text/Text";
 import { CommentList } from "entities/comment";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useSelector } from "react-redux";
@@ -14,18 +14,25 @@ import { AddCommentForm } from "features/add-new-comment";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { RouterPath } from "shared/config";
 import { Page } from "widgets/page";
+import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { getArticleDetailsCommentsError, getArticleDetailsCommentsStatus } from "../../model/selectors/comments";
-import { articleDetailsCommentsReducer, getArticleComments } from "../../model/slices/articleDetalisCommentsSlice";
+import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import cls from "./ArticleDetailsPage.module.scss";
+import { getArticleRecommendations } from "../../model/slices/articleDetailsPageRecommendationsSlice";
+import {
+    getArticleDetailsRecommendationsError,
+    getArticleDetailsRecommendationsStatus,
+} from "../../model/selectors/recommendations";
+import { articleDetailsPageReducer } from "../../model/slices";
 
 interface ArticleDetailsPageProps {
     className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = memo<ArticleDetailsPageProps>(({ className }) => {
@@ -36,6 +43,9 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(({ className }) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsStatus = useSelector(getArticleDetailsCommentsStatus);
     const commentsError = useSelector(getArticleDetailsCommentsError);
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
+    const recommendationsStatus = useSelector(getArticleDetailsRecommendationsStatus);
+    const recommendationsError = useSelector(getArticleDetailsRecommendationsError);
 
     const onSendComment = useCallback(
         (text: string) => {
@@ -47,7 +57,11 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(({ className }) => {
     const onBackToList = useCallback(() => {
         navigate(RouterPath.articles);
     }, [navigate]);
-    useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
+
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticleRecommendations());
+    });
 
     if (!id) {
         return <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>{t("ARTICLE WAS NOT FOUND")}</div>;
@@ -60,7 +74,14 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(({ className }) => {
                     {t("BACK TO THE LIST")}
                 </Button>
                 <ArticleDetails id={id} />
-                <Text title={t("COMMENTS")} className={cls.commentTitle} />
+                <Text size={TextSize.L} title={t("RECOMMENDATIONS")} className={cls.commentTitle} />
+                <ArticleList
+                    target="_blank"
+                    className={cls.recommendations}
+                    articles={recommendations}
+                    isLoading={recommendationsStatus === STATE_STATUSES.LOADING}
+                />
+                <Text size={TextSize.L} title={t("COMMENTS")} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList comments={comments} isLoading={commentsStatus === STATE_STATUSES.LOADING} />
             </Page>

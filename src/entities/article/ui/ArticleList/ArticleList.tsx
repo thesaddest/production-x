@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { ArticleListItemSkeleton } from "entities/article/ui/ArticleListItem/ArticleListItemSkeleton";
 import { Text, TextSize } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
@@ -12,6 +12,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getArticleListItemSkeletons = (view: ArticleView) => {
@@ -21,7 +22,7 @@ const getArticleListItemSkeletons = (view: ArticleView) => {
 };
 
 export const ArticleList = memo<ArticleListProps>((props) => {
-    const { className, articles, view = ArticleView.LIST, isLoading } = props;
+    const { className, articles, view = ArticleView.TILE, isLoading, target } = props;
     const { t } = useTranslation();
 
     if (!isLoading && !articles.length) {
@@ -32,12 +33,12 @@ export const ArticleList = memo<ArticleListProps>((props) => {
         );
     }
     const renderArticle = (article: Article) => {
-        return <ArticleListItem article={article} view={view} key={article.id} className={cls.card} />;
+        return <ArticleListItem article={article} view={view} key={article.id} className={cls.card} target={target} />;
     };
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles.length > 0 ? articles.map(renderArticle) : null}
+            {articles && articles.length > 0 ? articles.map(renderArticle) : null}
             {isLoading && getArticleListItemSkeletons(view)}
         </div>
     );
